@@ -32,6 +32,7 @@ module.exports = (app, passport) => {
     try {
       const {username, password} = req.body
       const response = await AuthInstance.login({username, password})
+
       req.session.authenticated = true
       req.session.user = {
         username,
