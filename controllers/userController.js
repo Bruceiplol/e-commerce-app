@@ -1,39 +1,37 @@
-const createError = require('http-errors');
-const UserModel = require('../models/userModel');
+const createError = require("http-errors");
+const UserModel = require("../models/userModel");
 const UserModelInstance = new UserModel();
 
 module.exports = class User {
-  async get (data) {
-    const {id} = data
+  async get(data) {
+    const { id } = data;
 
     try {
-      const user = await UserModelInstance.findOneById(id)
+      const user = await UserModelInstance.findOneById(id);
 
       if (!user) {
-        throw createError(404, 'User record not found');
+        throw createError(404, "User record not found");
       }
-      return user
+      return user;
     } catch (err) {
-      throw err
+      throw err;
     }
   }
 
   async update(data) {
-    const {id} = data
+    const { id } = data;
     try {
-      let user = await UserModelInstance.findOneById(id)
+      let user = await UserModelInstance.findOneById(id);
 
       if (!user) {
-        throw createError(404, 'User record not found');
+        throw createError(404, "User record not found");
       }
 
-      user = await UserModelInstance.update(data)
+      user = await UserModelInstance.update(data);
 
-      return data
-
-    } catch(err) {
-      throw err
+      return data;
+    } catch (err) {
+      throw err;
     }
   }
-
-}
+};

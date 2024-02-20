@@ -34,10 +34,7 @@ module.exports = (app, passport) => {
       const response = await AuthInstance.login({username, password})
 
       req.session.authenticated = true
-      req.session.user = {
-        username,
-        password
-      }
+      req.session.user = response
       res.status(200).send(response)
     } catch(err){
       next(err)

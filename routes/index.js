@@ -1,12 +1,14 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const authRouter = require('./auth')
-const userRouter = require('./user')
-const productRouter = require('./product')
+const authRouter = require("./auth");
+const userRouter = require("./user");
+const productRouter = require("./product");
+const cartRouter = require("./cart");
 
 module.exports = (app, passport) => {
-  authRouter(app, passport)
-  userRouter(app)
-  productRouter(app)
-}
+  authRouter(app, passport);
+  userRouter(app);
+  productRouter(app);
+  cartRouter(app);
+};
