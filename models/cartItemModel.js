@@ -14,7 +14,7 @@ module.exports = class CartItemModel {
 
       return null;
     } catch (err) {
-      throw new Error("Error creating cart: " + err.message);
+      throw new Error("Error creating cart item: " + err.message);
     }
   }
 
@@ -32,7 +32,7 @@ module.exports = class CartItemModel {
 
       return null;
     } catch (err) {
-      throw new Error("Error updating user: " + err.message);
+      throw new Error("Error updating cart item: " + err.message);
     }
   }
 
@@ -69,7 +69,7 @@ module.exports = class CartItemModel {
 
       return null;
     } catch (err) {
-      throw new Error("Error deleting cart items: " + err.message);
+      throw new Error("Error deleting cart item: " + err.message);
     }
   }
 };

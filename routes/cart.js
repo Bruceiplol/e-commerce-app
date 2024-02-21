@@ -12,7 +12,7 @@ module.exports = (app) => {
   cartRouter.post("/myCart", async (req, res, next) => {
     try {
       const { id } = req.user;
-      const response = await CartInstance.createCart({userId: id});
+      const response = await CartInstance.createCart({ userId: id });
       res.status(200).send(response);
     } catch (err) {
       next(err);
@@ -41,7 +41,7 @@ module.exports = (app) => {
 
   cartRouter.put("/myCart/items/:itemId", async (req, res, next) => {
     try {
-      const {itemId} = req.params;
+      const { itemId } = req.params;
       const response = await CartInstance.updateItem(itemId, data);
       res.status(200).send(response);
     } catch (err) {
