@@ -14,7 +14,7 @@ module.exports = class User {
       }
       return user;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 
@@ -29,9 +29,9 @@ module.exports = class User {
 
       user = await UserModelInstance.update(data);
 
-      return data;
+      return user;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 };

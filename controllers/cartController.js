@@ -12,7 +12,7 @@ module.exports = class Cart {
 
       return cart;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 
@@ -24,7 +24,7 @@ module.exports = class Cart {
 
       return cart;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 
@@ -34,7 +34,7 @@ module.exports = class Cart {
       const cartItem = await CartItemModel.create({ cartId: cart.id, ...data });
       return cartItem;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 
@@ -43,7 +43,7 @@ module.exports = class Cart {
       const cartItem = await CartItemModel.update(cartItemId, data);
       return cartItem;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 
@@ -53,7 +53,7 @@ module.exports = class Cart {
 
       return cartItem;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 
@@ -83,7 +83,7 @@ module.exports = class Cart {
 
       return order;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 };

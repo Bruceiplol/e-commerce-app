@@ -11,7 +11,7 @@ module.exports = class Order {
 
       return cart;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 
@@ -21,7 +21,7 @@ module.exports = class Order {
 
       return orders;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 
@@ -30,7 +30,7 @@ module.exports = class Order {
       const order = await OrderModel.findOneById(id);
       return order;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 };

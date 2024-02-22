@@ -1,0 +1,572 @@
+openapi: 3.0.1
+info:
+  title: E-Commerce REST API
+  version: 1.0.0
+  description: It is a simulated e-commerce app for Codecademy project.
+paths:
+  /auth/register:
+    post:
+      summary: Register a user
+      description: Register a user
+      operationId: register_user
+      requestBody:
+        description: A new user object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Auth_register'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: |-
+                    {
+                      "id": 1,
+                      "username": "test1",
+                      "password": "$2b$10$DY6PQ/WoIauOdpOtdaftvuLzDgRz4tCQxNwgjmu79qD9xovZVNt7.",
+                      "first_name": null,
+                      "last_name": null,
+                      "email": "test1@gmail.com",
+                      "phone": null,
+                      "created_at": "2024-02-22T08:22:12.291Z",
+                      "modified_at": "2024-02-22T08:22:12.291Z"
+                    }
+          description: Success
+        '409':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Conflict
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - AUTH
+  /auth/login:
+    post:
+      summary: Login a user
+      description: Login a user
+      operationId: user_login
+      requestBody:
+        description: A user object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Auth_login'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: |-
+                    {
+                      "id": 1,
+                      "username": "test1",
+                      "password": "$2b$10$DY6PQ/WoIauOdpOtdaftvuLzDgRz4tCQxNwgjmu79qD9xovZVNt7.",
+                      "first_name": null,
+                      "last_name": null,
+                      "email": "test1@gmail.com",
+                      "phone": null,
+                      "created_at": "2024-02-22T08:22:12.291Z",
+                      "modified_at": "2024-02-22T08:22:12.291Z"
+                    }
+          description: Success
+        '401':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Unauthorized
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - AUTH
+  /users/{id}:
+    get:
+      summary: Get a user info
+      description: Get a user info
+      operationId: get_user
+      parameters:
+        - name: id
+          in: path
+          description: 'The id of the user.'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: |-
+                    {
+                        "id": 1,
+                        "username": "test1",
+                        "password": "$2b$10$DY6PQ/WoIauOdpOtdaftvuLzDgRz4tCQxNwgjmu79qD9xovZVNt7.",
+                        "first_name": null,
+                        "last_name": null,
+                        "email": "test1@gmail.com",
+                        "phone": null,
+                        "created_at": "2024-02-22T08:22:12.291Z",
+                        "modified_at": "2024-02-22T08:22:12.291Z"
+                    }
+          description: Success
+        '404':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Unfound
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - USER
+    put:
+      summary: Update a user info
+      description: Update a user info
+      operationId: update_user
+      parameters:
+        - name: id
+          in: path
+          description: 'The id of the user.'
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: update user object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: |-
+                    {
+                        "id": 1,
+                        "username": "test1",
+                        "password": "$2b$10$DY6PQ/WoIauOdpOtdaftvuLzDgRz4tCQxNwgjmu79qD9xovZVNt7.",
+                        "first_name": null,
+                        "last_name": null,
+                        "email": "test1@gmail.com",
+                        "phone": null,
+                        "created_at": "2024-02-22T08:22:12.291Z",
+                        "modified_at": "2024-02-22T08:22:12.291Z"
+                    }
+          description: Success
+        '404':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Unfound
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - USER
+  /cart/myCart:
+    get:
+      summary: Get user cart info
+      description: Get user cart info
+      operationId: get_cart
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - CART
+    post:
+      summary: Create user cart
+      description: Create user cart
+      operationId: create_cart
+      requestBody:
+        description: A new cart object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - CART
+  /cart/myCart/items:
+    post:
+      summary: Add cart item
+      description: Add cart item
+      operationId: add_cart_item
+      requestBody:
+        description: A new cart item object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart_addItem'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - CART
+  /cart/myCart/items/{itemId}:
+    put:
+      summary: Update cart item
+      description: Update cart items
+      operationId: update_cart_items
+      parameters:
+        - name: itemId
+          in: path
+          description: 'The id of the item.'
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: A quantity number
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart_updateItem'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - CART
+    delete:
+      summary: Remove cart item
+      description: Remove cart item
+      operationId: delete_cart_item
+      parameters:
+        - name: itemId
+          in: path
+          description: 'The id of the item.'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - CART
+  /cart/myCart/checkout:
+    post:
+      summary: Checkout cart
+      description: Checkout cart
+      operationId: cart_checkout
+      requestBody:
+        description: A cart & payment object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart_checkout'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - CART
+  /order:
+    get:
+      summary: Get user orders
+      description: Get user orders
+      operationId: get_orders
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - ORDER
+  /order/{orderId}:
+    get:
+      summary: Get user specific order
+      description: Get user specific order
+      operationId: get_order
+      parameters:
+        - name: orderId
+          in: path
+          description: 'The id of the order.'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - ORDER
+  /products:
+    get:
+      summary: Get products
+      description: Get products
+      operationId: get_products
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '404':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Unfound
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - PRODUCT
+  /product/{productId}:
+    get:
+      summary: Get specific product
+      description: Get specific product
+      operationId: get_product
+      parameters:
+        - name: productId
+          in: path
+          description: 'The id of the product.'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                user:
+                  value: 
+          description: Success
+        '500':
+          content:
+            application/json:
+              examples:
+                auth:
+                  value: null
+          description: Internal Server Error
+        default:
+          description: Default error sample response
+      tags:
+        - PRODUCT
+
+components:
+  schemas:
+    Auth_register:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      xml:
+        name: Auth_register
+    Auth_login:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      xml:
+        name: Auth_login
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        phone:
+          type: integer
+      xml:
+        name: User
+    Cart:
+      type: object
+      properties:
+        userId:
+          type: integer
+      xml:
+        name: Cart
+    Cart_addItem:
+      type: object
+      properties:
+        item:
+          type: object
+      xml:
+        name: Cart_additem
+    Cart_updateItem:
+      type: object
+      properties:
+        quantity:
+          type: integer
+      xml:
+        name: Cart_updateItem
+    Cart_checkout:
+      type: object
+      properties:
+        CartId:
+          type: integer
+        paymentInfo:
+          type: object
+      xml:
+        name: Cart_checkout

@@ -12,7 +12,7 @@ module.exports = class Product {
       }
       return product;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 
@@ -21,7 +21,7 @@ module.exports = class Product {
       const products = await productModelInstance.find(options);
       return products;
     } catch (err) {
-      throw err;
+      throw createError(500, err);
     }
   }
 };

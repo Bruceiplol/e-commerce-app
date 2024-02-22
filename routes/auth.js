@@ -7,19 +7,9 @@ const AuthInstance = new Auth();
 module.exports = (app, passport) => {
   app.use("/auth", authRouter);
 
-  authRouter.get("/", async (req, res) => {
-    const response = await AuthInstance.getAll();
-    res.send(response);
-  });
-
   authRouter.post("/register", async (req, res, next) => {
     try {
       const data = req.body;
-
-      if (!data.username || !data.email || !data.password) {
-        return res.status(400).json({ error: "Please fill in all fields." });
-      }
-
       const response = await AuthInstance.register(data);
       res.status(201).send(response);
     } catch (err) {
