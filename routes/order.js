@@ -7,7 +7,7 @@ const OrderInstance = new Order();
 const { ensureAuthentication } = require("./middlewares");
 
 module.exports = (app) => {
-  app.use("/order", ensureAuthentication, orderRouter);
+  app.use("/api/order", ensureAuthentication, orderRouter);
 
   orderRouter.get("/", async (req, res, next) => {
     try {

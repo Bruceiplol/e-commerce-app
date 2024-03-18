@@ -7,7 +7,7 @@ const userInstance = new User();
 const { ensureAuthentication } = require("./middlewares");
 
 module.exports = (app) => {
-  app.use("/users", userRouter);
+  app.use("/api/users", userRouter);
 
   userRouter.get("/:id", ensureAuthentication, async (req, res, next) => {
     try {

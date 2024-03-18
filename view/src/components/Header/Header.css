@@ -1,0 +1,84 @@
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+.firstNav {
+  background-color: var(--color-background-secondary);
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-inline: var(--spacing-2);
+  padding-block: var(--spacing-1);
+}
+
+.firstNav > a, b {
+  margin-inline: var(--spacing-1);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--color-text-body);
+}
+
+.secNav {
+  background-color: var(--color-branding);
+  color: var(--color-text-header);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: var(--spacing-2);
+}
+
+[class^="nav-"] {
+  display:flex;
+  align-items: center;
+}
+
+.nav-left > img {
+  height: 40px;
+  margin-right: var(--spacing-1);
+  cursor: pointer;
+}
+
+.nav-left > img:hover {
+  color: var(--color-text-header-2);
+}
+
+.nav-left > h2 {
+  margin:0;
+  cursor: pointer;
+}
+.nav-left > h2:hover {
+  color: var(--color-text-header-2);
+}
+
+.nav-center {
+  height:100%;
+}
+
+.nav-center > p {
+  font-size: var(--font-2);
+  height:100%;
+  padding-block: var(--spacing-2);
+  padding-inline: var(--spacing-1);
+}
+
+.nav-center > p:hover {
+  cursor: pointer;
+  background-color: var( --color-branding-transparent);
+}
+
+.cart-btn, .fav-btn {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  color: var(--color-text-header);
+  font-size: var(--font-2);
+  padding:var(--spacing-1);
+  display:flex;
+  cursor: pointer;
+}
+
+.cart-btn:hover, .fav-btn:hover{
+  background-color: var( --color-branding-transparent);
+}

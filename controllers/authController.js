@@ -5,8 +5,8 @@ const bcrypt = require("bcrypt");
 
 module.exports = class Auth {
   async getAll() {
-    const user = await UserModelInstance.display();
-    return user;
+    const user = await UserModelInstance.display()
+    return user
   }
 
   async register(data) {

@@ -1,0 +1,112 @@
+.login-container{
+  margin:var(--spacing-5) auto;
+  padding: var(--spacing-3) var(--spacing-5);
+  width: min-content;
+  min-width: 300px;
+  border: 1px solid;
+  border-radius: var(--radius-1);
+  background-color: var(--color-background);
+  box-shadow: var(--font-0) var(--font-0) var(--font-1) var(--color-branding-transparent);
+  text-wrap:nowrap;
+}
+
+.login-form-title {
+  margin-block: var(--spacing-3) var(--spacing-4);
+  text-align: center;
+  color: var(--color-branding);
+  
+}
+
+.login-form-head {
+  margin:0;
+  padding:0;
+}
+
+.login-form-alt a {
+  color: var(--color-text-link);
+  text-decoration: none;
+}
+
+.login-form-alt a:hover {
+  text-decoration: underline;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-label {
+  align-self: flex-start;
+  color: var(--color-branding);
+}
+
+.login-form-field {
+  margin: var(--spacing-1) 0;
+  width: 300px;
+  height: var(--font-2);
+  text-indent: var(--font-0);
+  border-radius: var(--radius-0);
+  border: 2px solid var(--color-border);
+}
+
+.login-form-password{
+  margin-block: var(--spacing-0);
+  position:relative;
+}
+
+.login-form-rem-forgot {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-0);
+}
+
+#rememberMe {
+  margin-right:var(--spacing-1);
+}
+
+.login-form-rem-forgot a {
+  color: var(--color-text-link);
+  text-decoration: none;
+}
+
+.login-form-rem-forgot a:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  height: var(--font-3);
+  width:100%;
+  margin-block: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-branding-transparent);
+  color: var(--color-text-header);
+  border-color: var(--color-branding-transparent);
+  border-radius: var(--radius-0);
+  font-size: var(--font-1);
+  transition: transform 0.1s ease-in-out;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+  background-color: #22427a; 
+}
+
+.feild-container {
+  display:flex;
+  flex-direction: column;
+}
+
+.error-message {
+  color: red;
+  text-wrap: wrap;
+  margin-bottom: var(--spacing-1);
+  text-indent: 2px;
+}
+
+.showPassword-btn {
+  background: none;
+  border: none;
+  position:absolute;
+  right: 2px;
+  top: 35px;
+}

@@ -1,0 +1,34 @@
+.search-bar {
+  position:relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-btn {
+  position:absolute;
+  top:2px;
+  left:2px;
+  background: transparent;
+  border: none;
+  height:90%;
+  width: var(--font-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.search-btn:hover {
+  background-color: var(--color-background-secondary);
+}
+
+.search-box {
+  text-indent: var(--font-2);
+  height: var(--font-2);
+  width: 150px;
+  border-radius: var(--radius-2);
+  margin-right: var(--spacing-1);
+}
+
+.search-box:hover {
+  background-color: var(--color-background-secondary);
+}

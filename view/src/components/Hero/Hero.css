@@ -1,0 +1,15 @@
+.hero-section {
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  height: 500px;
+  display: block;
+  overflow: hidden;
+}
+
+
+.hero-img {
+  width: 100%;
+  height:100%;
+  object-fit: cover;
+}

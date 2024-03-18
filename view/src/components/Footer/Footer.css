@@ -1,0 +1,99 @@
+footer {
+  width: 100%;
+  background-color: var(--color-background-secondary);
+  padding: 40px 160px 0px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "c c";
+  grid-template-columns: 2fr 1fr;
+}
+
+.bottom-nav {
+  grid-area: a;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: var(--spacing-4);
+}
+
+.bottom-nav > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.bottom-nav-title {
+  font-weight: bolder;
+  text-decoration: underline;
+  margin-bottom: var(--spacing-0);
+  color: #6F6F6F;
+}
+
+.bottom-nav > ul {
+  list-style: none;
+}
+
+.bottom-nav > ul > li {
+  margin-bottom: var(--spacing-0);
+}
+
+.bottom-subscribe {
+  margin-bottom: var(--spacing-4);
+}
+
+.newsletter > h3 {
+  margin:0;
+  margin-bottom: var(--spacing-1);
+}
+
+.subs-input {
+  text-indent: var(--font-0);
+  height: var(--font-2);
+  width: 250px;
+  border-radius: var(--radius-0);
+  margin: var(--spacing-1) var(--spacing-1) var(--spacing-1) 0;
+  border: 1px solid var(--color-border);
+  padding-block: var(--spacing-1);
+}
+
+.subs-btn {
+  padding: var(--spacing-1);
+  border-radius: var(--radius-1);
+  background-color: var(--color-branding-transparent);
+  color: var(--color-text-header);
+  border:none;
+}
+
+.social-media {
+  grid-area: b;
+  display: flex;
+  justify-content: center;
+  font-size: var(--font-2);
+  align-items: center;
+  padding-top: var(--spacing-3)
+}
+
+.sm-icon {
+  margin-inline: var(--spacing-0);
+}
+
+
+.bottom {
+  grid-area: c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid ;
+  padding-block: var(--spacing-1) ;
+}
+
+.bottom-left {
+  display: flex;
+  align-items: center;
+  font: bold;
+  font-size: var(--font-2);
+}
+
+.github-link {
+  margin-left: var(--spacing-1);
+}

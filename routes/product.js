@@ -5,14 +5,14 @@ const Product = require("../controllers/productController");
 const ProductInstance = new Product();
 
 module.exports = (app) => {
-  app.use("/products", productRouter);
+  app.use("/api/products", productRouter);
 
   productRouter.get("/", async (req, res, next) => {
     try {
       const queryParams = req.query;
 
       const response = await ProductInstance.list(queryParams);
-      res.status(200).send(response);
+      res.status(200).json(response);
     } catch (err) {
       next(err);
     }

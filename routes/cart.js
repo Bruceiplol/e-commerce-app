@@ -7,7 +7,7 @@ const CartInstance = new Cart();
 const { ensureAuthentication } = require("./middlewares");
 
 module.exports = (app) => {
-  app.use("/cart", ensureAuthentication, cartRouter);
+  app.use("/api/cart", ensureAuthentication, cartRouter);
 
   cartRouter.post("/myCart", async (req, res, next) => {
     try {
