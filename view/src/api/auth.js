@@ -18,8 +18,16 @@ export const login = async (credentials) => {
       },
       body: JSON.stringify(credentials)
     });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json(); 
+    console.log('%c response', 'color: #00e600', data);
+    return data;
   } catch (err) {
-    throw err;
+    throw err.response ? err.response.data : err;
+
   }
 };
 
