@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { showUser } from '../api/auth';
+import {useDispatch, useSelector} from 'react-redux'
+import { show } from '../store/auth';
 
 const Auth = () => {
-  const [userData, setUserData] = useState(null);
+  const dispatch = useDispatch()
+  const data = useSelector(state => state.data)
+  console.log(data)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await showUser();
-        setUserData(res);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
+  useEffect(()=> {
+    dispatch(show())
+  },[dispatch, show])
 
-  return <div>{userData && JSON.stringify(userData)}</div>;
+
+  return <div>{data}</div>;
 };
 
 export default Auth;

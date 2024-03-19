@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { register, login, isLoggedIn } from "../api/auth";
+import { register, login, isLoggedIn, showUser } from "../api/auth";
 
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
@@ -45,7 +45,21 @@ export const checkLoggedIn = createAsyncThunk(
   }
 );
 
+export const show = createAsyncThunk(
+  "auth/show",
+  async () => {
+    try {
+      const res = await showUser();
+      const data = res.json()
+      return data
+    } catch (err) {
+      throw err;
+    }
+  }
+);
+
 const initialState = {
+  data: [],
   status: "idle",
   isAuthenticated: false,
   error: null,
@@ -86,6 +100,11 @@ const authSlice = createSlice({
       .addCase(checkLoggedIn.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.error = null;
+      })
+      .addCase(show.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.error = null;
+        state.data = action.payload
       });
   },
 });

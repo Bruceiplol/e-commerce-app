@@ -11,11 +11,15 @@ export const register = async (data) => {
 
 export const login = async (credentials) => {
   try {
-    const response = await fetch("/api/auth/login", credentials);
-    console.log(response)
-    return response;
+    const response = await fetch("http://localhost:4000/api/auth/login", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    });
   } catch (err) {
-    throw err.response.data;
+    throw err;
   }
 };
 
@@ -29,8 +33,14 @@ export const isLoggedIn = async () => {
 };
 
 export const showUser = async () => {
-  const response = await fetch("/api/auth")
-
+  const response = await fetch("http://localhost:4000/api/auth", {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
   console.log(response)
-  return response.data
+  const data = response.json()
+  console.log(data)
+  return response
 }

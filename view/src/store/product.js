@@ -7,6 +7,8 @@ export const displayProducts = createAsyncThunk(
     try {
       const res = await getProducts();
       console.log(res)
+      const data = res.json()
+      console.log(data)
       return res;
     } catch (err) {
       throw err;

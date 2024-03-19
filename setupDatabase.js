@@ -6,6 +6,7 @@ const { DB } = require('./config');
   const usersTableStmt = `
     CREATE TABLE IF NOT EXISTS users (
       id              INT               PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
+      username        VARCHAR(50) NOT NULL,
       email           VARCHAR(50) NOT NULL,      
       password        VARCHAR NOT NULL,
       firstName       VARCHAR(50),
