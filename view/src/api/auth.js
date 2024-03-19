@@ -11,11 +11,21 @@ export const register = async (data) => {
 
 export const login = async (credentials) => {
   try {
-    const response = await fetch("/api/auth/login", credentials);
-    console.log(response)
-    return response;
+    const response = await fetch("http://localhost:4000/api/auth/login", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json(); 
+    console.log('%c response', 'color: #00e600', data);
+    return data;
   } catch (err) {
-    throw err.response.data;
+    throw err.response ? err.response.data : err;
   }
 };
 
